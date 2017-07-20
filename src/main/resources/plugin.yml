@@ -1,0 +1,9 @@
+main: nl.imine.gladiator.Gladiator
+name: MobArena
+version: 1.0
+commands:
+  arena:
+    description: "[TEST] Arena base command"
+    permission: gladiator.join
+    usage: /gladiator [join|leave] arenaIndex
+    alias: [gladiator, ar, mobarena, ma]

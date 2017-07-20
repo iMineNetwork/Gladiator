@@ -1,0 +1,86 @@
+[{
+  "id": 0,
+  "playerSpawns" : [ {
+    "uuid" : "6b6d4bac-1e8c-4083-9a2e-a2c1be14a720",
+    "x" : 0.0,
+    "y" : 70.0,
+    "z" : 0.0,
+    "yaw" : 1.0,
+    "pitch" : 0.5
+  } ],
+  "waves" : [ {
+    "enemySpawns" : [ {
+      "entityType" : "ZOMBIE",
+      "spawnLocation" : {
+        "uuid" : "6b6d4bac-1e8c-4083-9a2e-a2c1be14a720",
+        "x" : 5.0,
+        "y" : 70.0,
+        "z" : 5.0,
+        "yaw" : 4.0,
+        "pitch" : 5.0
+      },
+      "equipment" : {
+        "head" : null,
+        "torso" : null,
+        "legs" : null,
+        "feet" : null,
+        "mainHand" : null,
+        "offHand" : null
+      },
+      "attribute" : null
+    } ]
+  },
+  {
+       "enemySpawns" : [ {
+         "entityType" : "ZOMBIE",
+         "spawnLocation" : {
+           "uuid" : "6b6d4bac-1e8c-4083-9a2e-a2c1be14a720",
+           "x" : -5.0,
+           "y" : 70.0,
+           "z" : -5.0,
+           "yaw" : 4.0,
+           "pitch" : 5.0
+         },
+         "equipment" : {
+           "head" : null,
+           "torso" : null,
+           "legs" : null,
+           "feet" : null,
+           "mainHand" : null,
+           "offHand" : null
+         },
+         "attribute" : null
+       } ]
+     },
+    {
+     "enemySpawns" : [ {
+       "entityType" : "ZOMBIE",
+       "spawnLocation" : {
+         "uuid" : "6b6d4bac-1e8c-4083-9a2e-a2c1be14a720",
+         "x" : 5.0,
+         "y" : 70.0,
+         "z" : -5.0,
+         "yaw" : 4.0,
+         "pitch" : 5.0
+       },
+       "equipment" : {
+         "head" : null,
+         "torso" : null,
+         "legs" : null,
+         "feet" : null,
+         "mainHand" : null,
+         "offHand" : null
+       },
+       "attribute" : null
+     } ]
+    }],
+  "reward" : {
+    "rewards" : [ {
+      "itemType" : "STONE",
+      "dataValue" : 2,
+      "amount" : 5,
+      "enchantments" : [ ],
+      "attributes" : [ ]
+    } ]
+  }
+}]
