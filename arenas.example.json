@@ -73,14 +73,31 @@
               "pitch": 5.0
             },
             "equipment": {
-              "head": null,
+              "head": {
+                "itemType": "IRON_HELMET",
+                "dataValue": 0,
+                "amount": 1,
+                "enchantments": [
+                  {
+                    "enchantment": "PROTECTION_ENVIRONMENTAL",
+                    "level": 5
+                  }
+                ],
+                "attributes": [
+                ]
+              },
               "torso": null,
               "legs": null,
               "feet": null,
               "mainHand": null,
               "offHand": null
             },
-            "attribute": null
+            "attributes": [
+              {
+                "attribute": "GENERIC_MAX_HEALTH",
+                "value": "40.0"
+              }
+            ]
           }
         ]
       }
