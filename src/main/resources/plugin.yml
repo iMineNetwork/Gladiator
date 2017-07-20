@@ -6,4 +6,4 @@ commands:
     description: "[TEST] Arena base command"
     permission: gladiator.join
     usage: /gladiator [join|leave] arenaIndex
-    alias: [gladiator, ar, mobarena, ma]
+    aliases: [gladiator, ar, mobarena, ma]
