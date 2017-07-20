@@ -5,6 +5,7 @@ import nl.imine.gladiator.data.common.CustomLocation;
 import org.bukkit.entity.EntityType;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Enemy implements Serializable {
 
@@ -12,17 +13,17 @@ public class Enemy implements Serializable {
     private EntityType entityType;
     private CustomLocation spawnLocation;
     private Equipment equipment;
-    private CustomAttribute attribute;
+    private List<CustomAttribute> attributes;
 
     public Enemy() {
     }
 
-    public Enemy(String customName, EntityType entityType, CustomLocation spawnLocation, Equipment equipment, CustomAttribute attribute) {
+    public Enemy(String customName, EntityType entityType, CustomLocation spawnLocation, Equipment equipment, List<CustomAttribute> attributes) {
         this.customName = customName;
         this.entityType = entityType;
         this.spawnLocation = spawnLocation;
         this.equipment = equipment;
-        this.attribute = attribute;
+        this.attributes = attributes;
     }
 
     public String getCustomName() {
@@ -57,12 +58,12 @@ public class Enemy implements Serializable {
         this.equipment = equipment;
     }
 
-    public CustomAttribute getAttribute() {
-        return attribute;
+    public List<CustomAttribute> getAttributes() {
+        return attributes;
     }
 
-    public void setAttribute(CustomAttribute attribute) {
-        this.attribute = attribute;
+    public void setAttribute(List<CustomAttribute> attributes) {
+        this.attributes = attributes;
     }
 
     @Override
@@ -72,7 +73,7 @@ public class Enemy implements Serializable {
                 ", entityType=" + entityType +
                 ", spawnLocation=" + spawnLocation +
                 ", equipment=" + equipment +
-                ", attribute=" + attribute +
+                ", attribute=" + attributes +
                 '}';
     }
 }

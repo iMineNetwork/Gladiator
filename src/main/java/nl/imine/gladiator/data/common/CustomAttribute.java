@@ -5,12 +5,12 @@ import java.io.Serializable;
 public class CustomAttribute implements Serializable {
 
     private String attribute;
-    private String value;
+    private double value;
 
     public CustomAttribute() {
     }
 
-    public CustomAttribute(String attribute, String value) {
+    public CustomAttribute(String attribute, double value) {
         this.attribute = attribute;
         this.value = value;
     }
@@ -23,11 +23,11 @@ public class CustomAttribute implements Serializable {
         this.attribute = attribute;
     }
 
-    public String getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(double value) {
         this.value = value;
     }
 

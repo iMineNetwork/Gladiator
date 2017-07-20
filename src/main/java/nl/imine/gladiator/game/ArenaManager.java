@@ -2,7 +2,10 @@ package nl.imine.gladiator.game;
 
 import nl.imine.gladiator.Gladiator;
 import nl.imine.gladiator.data.arena.Arena;
+import nl.imine.gladiator.data.common.CustomAttribute;
+
 import org.bukkit.Bukkit;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -98,8 +101,12 @@ public class ArenaManager {
                 enemy.getEquipment().setItemInMainHandDropChance(0);
                 enemy.getEquipment().setItemInOffHandDropChance(0);
 
-                enemy.setCustomName(enemy.getCustomName());
+                enemy.setCustomName(enemySpawn.getCustomName());
                 enemy.setRemoveWhenFarAway(false);
+
+                for (CustomAttribute attribute : enemySpawn.getAttributes()) {
+                    enemy.getAttribute(Attribute.valueOf(attribute.getAttribute())).setBaseValue(attribute.getValue());
+                }
 
                 currentEnemies.add(enemy);
             });
