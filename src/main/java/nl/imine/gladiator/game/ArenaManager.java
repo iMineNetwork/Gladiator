@@ -65,8 +65,11 @@ public class ArenaManager {
     public void stopArena() {
         currentEnemies.forEach(Entity::remove);
         players.forEach(player -> {
+            player.sendTitle("You Won!", "", 10, 70, 20);
+            arena.getReward().getRewards().get(new Random().nextInt(arena.getReward().getRewards().size()));
             player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
         });
+        players.clear();
     }
 
     public void removeEntity(Entity entity) {
@@ -127,14 +130,6 @@ public class ArenaManager {
                 startWave(currentWave);
             }, 100);
         } else {
-            players.forEach(player -> {
-                player.sendTitle("You Won!", "", 10, 70, 20);
-            });
-            Bukkit.getScheduler().scheduleSyncDelayedTask(Gladiator.getPlugin(Gladiator.class), () -> {
-                players.forEach(player -> {
-                    arena.getReward().getRewards().get(new Random().nextInt(arena.getReward().getRewards().size()));
-                });
-            });
             stopArena();
         }
     }
