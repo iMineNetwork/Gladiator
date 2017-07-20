@@ -16,7 +16,7 @@ nb-configuration.xml
 .classpath
 
 # Idea Files #
-.idea/*
+.idea/
 */.idea
 *.iws
 *.iml
@@ -38,6 +38,9 @@ fabric.properties
 !libs/*.jar
 .DS_Store
 /target/
+
+# Maven Files #
+dependency-reduced-pom.xml
 
 #Don't ignore source files
 !src/*
