@@ -73,7 +73,7 @@ public class Gladiator extends JavaPlugin {
         List<Wave> waves = new ArrayList<>();
 
         List<Enemy> enemySpawns = new ArrayList<>();
-        enemySpawns.add(new Enemy(null, EntityType.ZOMBIE, new CustomLocation(Bukkit.getWorlds().get(0).getName(), 1, 2, 3, 4, 5), new Equipment(null, null, null, null, null, null), null));
+        enemySpawns.add(new Enemy(null, 1, EntityType.ZOMBIE, new CustomLocation(Bukkit.getWorlds().get(0).getName(), 1, 2, 3, 4, 5), new Equipment(null, null, null, null, null, null), null));
         Wave wave = new Wave(enemySpawns);
         waves.add(wave);
 
