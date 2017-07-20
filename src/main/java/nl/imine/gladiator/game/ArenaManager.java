@@ -108,6 +108,7 @@ public class ArenaManager {
                     enemy.getAttribute(Attribute.valueOf(attribute.getAttribute())).setBaseValue(attribute.getValue());
                 }
 
+                enemy.setHealth(enemy.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
                 currentEnemies.add(enemy);
             });
         }, 200);
