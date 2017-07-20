@@ -10,6 +10,7 @@ import java.util.List;
 public class Enemy implements Serializable {
 
     private String customName;
+    private int count;
     private EntityType entityType;
     private CustomLocation spawnLocation;
     private Equipment equipment;
@@ -18,8 +19,9 @@ public class Enemy implements Serializable {
     public Enemy() {
     }
 
-    public Enemy(String customName, EntityType entityType, CustomLocation spawnLocation, Equipment equipment, List<CustomAttribute> attributes) {
+    public Enemy(String customName, int count, EntityType entityType, CustomLocation spawnLocation, Equipment equipment, List<CustomAttribute> attributes) {
         this.customName = customName;
+        this.count = count;
         this.entityType = entityType;
         this.spawnLocation = spawnLocation;
         this.equipment = equipment;
@@ -28,6 +30,14 @@ public class Enemy implements Serializable {
 
     public String getCustomName() {
         return customName;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public void setCustomName(String customName) {
@@ -62,7 +72,7 @@ public class Enemy implements Serializable {
         return attributes;
     }
 
-    public void setAttribute(List<CustomAttribute> attributes) {
+    public void setAttributes(List<CustomAttribute> attributes) {
         this.attributes = attributes;
     }
 

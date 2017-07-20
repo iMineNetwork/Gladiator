@@ -83,33 +83,35 @@ public class ArenaManager {
         });
         Bukkit.getScheduler().scheduleSyncDelayedTask(Gladiator.getPlugin(Gladiator.class), () -> {
             arena.getWaves().get(wave).getEnemySpawns().forEach(enemySpawn -> {
-                LivingEntity enemy = (LivingEntity) enemySpawn.getSpawnLocation().toBukkitLocation().getWorld().spawnEntity(enemySpawn.getSpawnLocation().toBukkitLocation(), enemySpawn.getEntityType());
+                for(int i = 0; i < enemySpawn.getCount(); i++) {
+                    LivingEntity enemy = (LivingEntity) enemySpawn.getSpawnLocation().toBukkitLocation().getWorld().spawnEntity(enemySpawn.getSpawnLocation().toBukkitLocation(), enemySpawn.getEntityType());
 
-                //Give the enemy it's weapons. Fill everything so no random armor should be added.
-                enemy.getEquipment().setHelmet(enemySpawn.getEquipment().getHead().toBukkitItemStack());
-                enemy.getEquipment().setChestplate(enemySpawn.getEquipment().getTorso().toBukkitItemStack());
-                enemy.getEquipment().setLeggings(enemySpawn.getEquipment().getLegs().toBukkitItemStack());
-                enemy.getEquipment().setBoots(enemySpawn.getEquipment().getFeet().toBukkitItemStack());
-                enemy.getEquipment().setItemInMainHand(enemySpawn.getEquipment().getMainHand().toBukkitItemStack());
-                enemy.getEquipment().setItemInOffHand(enemySpawn.getEquipment().getOffHand().toBukkitItemStack());
+                    //Give the enemy it's weapons. Fill everything so no random armor should be added.
+                    enemy.getEquipment().setHelmet(enemySpawn.getEquipment().getHead().toBukkitItemStack());
+                    enemy.getEquipment().setChestplate(enemySpawn.getEquipment().getTorso().toBukkitItemStack());
+                    enemy.getEquipment().setLeggings(enemySpawn.getEquipment().getLegs().toBukkitItemStack());
+                    enemy.getEquipment().setBoots(enemySpawn.getEquipment().getFeet().toBukkitItemStack());
+                    enemy.getEquipment().setItemInMainHand(enemySpawn.getEquipment().getMainHand().toBukkitItemStack());
+                    enemy.getEquipment().setItemInOffHand(enemySpawn.getEquipment().getOffHand().toBukkitItemStack());
 
-                //Set the enemy's itemDropChance to 0 to prevent equipment from dropping
-                enemy.getEquipment().setHelmetDropChance(0);
-                enemy.getEquipment().setChestplateDropChance(0);
-                enemy.getEquipment().setLeggingsDropChance(0);
-                enemy.getEquipment().setBootsDropChance(0);
-                enemy.getEquipment().setItemInMainHandDropChance(0);
-                enemy.getEquipment().setItemInOffHandDropChance(0);
+                    //Set the enemy's itemDropChance to 0 to prevent equipment from dropping
+                    enemy.getEquipment().setHelmetDropChance(0);
+                    enemy.getEquipment().setChestplateDropChance(0);
+                    enemy.getEquipment().setLeggingsDropChance(0);
+                    enemy.getEquipment().setBootsDropChance(0);
+                    enemy.getEquipment().setItemInMainHandDropChance(0);
+                    enemy.getEquipment().setItemInOffHandDropChance(0);
 
-                enemy.setCustomName(enemySpawn.getCustomName());
-                enemy.setRemoveWhenFarAway(false);
+                    enemy.setCustomName(enemySpawn.getCustomName());
+                    enemy.setRemoveWhenFarAway(false);
 
-                for (CustomAttribute attribute : enemySpawn.getAttributes()) {
-                    enemy.getAttribute(Attribute.valueOf(attribute.getAttribute())).setBaseValue(attribute.getValue());
+                    for (CustomAttribute attribute : enemySpawn.getAttributes()) {
+                        enemy.getAttribute(Attribute.valueOf(attribute.getAttribute())).setBaseValue(attribute.getValue());
+                    }
+
+                    enemy.setHealth(enemy.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
+                    currentEnemies.add(enemy);
                 }
-
-                enemy.setHealth(enemy.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
-                currentEnemies.add(enemy);
             });
         }, 200);
 ;
