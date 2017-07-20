@@ -54,7 +54,7 @@ public class ArenaManager {
         System.out.println(arena);
         players.forEach(player -> {
             player.teleport(arena.getPlayerSpawns().get(new Random().nextInt(arena.getPlayerSpawns().size())).toBukkitLocation());
-            player.sendTitle("Prepare for the trials", "", 100, 100, 100);
+            player.sendTitle("Prepare for the trials", "", 50, 100, 50);
         });
 
         Bukkit.getScheduler().scheduleSyncDelayedTask(Gladiator.getPlugin(Gladiator.class), () -> {
@@ -79,7 +79,7 @@ public class ArenaManager {
 
     public void startWave(int wave) {
         players.forEach(player -> {
-            player.sendTitle("Wave " + currentWave, "", 200, 200, 200);
+            player.sendTitle("Wave " + currentWave, "", 10, 70, 20);
         });
         Bukkit.getScheduler().scheduleSyncDelayedTask(Gladiator.getPlugin(Gladiator.class), () -> {
             arena.getWaves().get(wave).getEnemySpawns().forEach(enemySpawn -> {
@@ -113,20 +113,22 @@ public class ArenaManager {
                     currentEnemies.add(enemy);
                 }
             });
-        }, 200);
+        }, 100);
 ;
     }
 
     public void endWave() {
         players.forEach(player -> {
-            player.sendTitle("Round defeated", (arena.getWaves().size() - currentWave) + "waves left", 200, 200, 200);
+            player.sendTitle("Round defeated", (arena.getWaves().size() - currentWave) + "waves left", 10, 70, 20);
         });
         currentWave++;
         if (currentWave < arena.getWaves().size()) {
-            startWave(currentWave);
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Gladiator.getPlugin(Gladiator.class), () -> {
+                startWave(currentWave);
+            }, 10);
         } else {
             players.forEach(player -> {
-                player.sendTitle("You Won!", "", 100, 100, 100);
+                player.sendTitle("You Won!", "", 10, 70, 20);
             });
             Bukkit.getScheduler().scheduleSyncDelayedTask(Gladiator.getPlugin(Gladiator.class), () -> {
                 players.forEach(player -> {
