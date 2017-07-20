@@ -125,7 +125,7 @@ public class ArenaManager {
         if (currentWave < arena.getWaves().size()) {
             Bukkit.getScheduler().scheduleSyncDelayedTask(Gladiator.getPlugin(Gladiator.class), () -> {
                 startWave(currentWave);
-            }, 10);
+            }, 100);
         } else {
             players.forEach(player -> {
                 player.sendTitle("You Won!", "", 10, 70, 20);
