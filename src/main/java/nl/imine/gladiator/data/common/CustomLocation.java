@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class CustomLocation implements Serializable {
 
-    private UUID uuid;
+    private String worldName;
     private double x;
     private double y;
     private double z;
@@ -18,8 +18,8 @@ public class CustomLocation implements Serializable {
     public CustomLocation() {
     }
 
-    public CustomLocation(UUID uuid, double x, double y, double z, float yaw, float pitch) {
-        this.uuid = uuid;
+    public CustomLocation(String worldName, double x, double y, double z, float yaw, float pitch) {
+        this.worldName = worldName;
         this.x = x;
         this.y = y;
         this.z = z;
@@ -28,7 +28,7 @@ public class CustomLocation implements Serializable {
     }
 
     public Location toBukkitLocation() {
-        return new Location(Bukkit.getWorld(uuid),
+        return new Location(Bukkit.getWorld(worldName),
                 x,
                 y,
                 z,
@@ -37,12 +37,12 @@ public class CustomLocation implements Serializable {
         );
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public String getWorldName() {
+        return worldName;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setWorldName(String worldName) {
+        this.worldName = worldName;
     }
 
     public double getX() {
@@ -88,7 +88,7 @@ public class CustomLocation implements Serializable {
     @Override
     public String toString() {
         return "CustomLocation{" +
-                "uuid=" + uuid +
+                "worldName=" + worldName +
                 ", x=" + x +
                 ", y=" + y +
                 ", z=" + z +
